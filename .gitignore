@@ -1,0 +1,23 @@
+# --- Python & Environments ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# --- Model Artifacts & Data ---
+models/*.pth
+models/*.pt
+bottle/
+bottle.tar.xz
+
+# --- Jupyter & Research ---
+.ipynb_checkpoints/
+
+# --- OS Generated Files ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
