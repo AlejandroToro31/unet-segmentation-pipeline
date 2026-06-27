@@ -1,18 +1,30 @@
+# ==============================================================
+# UNet Segmentation API — Production Dependencies
+# ==============================================================
+# All versions pinned for deterministic builds.
+# ==============================================================
+
+# ── PyTorch CPU Index
+# CPU-only PyTorch wheel (~200MB) vs default CUDA wheel (~2.5GB).
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-# Core API
+# ── API Framework
 fastapi==0.104.1
-uvicorn==0.24.0
+uvicorn[standard]==0.24.0         # [standard] installs uvloop + httptools
 python-multipart==0.0.6
 pydantic==2.5.2
 
-# Machine Learning & Vision
+# ── ML Engine (CPU-only)
 torch==2.1.1+cpu
 torchvision==0.16.1+cpu
-albumentations==1.3.1
-opencv-python-headless==4.8.1.78
-numpy==1.26.2
-segmentation-models-pytorch==0.3.3
+segmentation-models-pytorch==0.3.3   # UNet + pretrained encoders (ResNet34)
 
-# Sub-Dependency Patches
+# ── Computer Vision & Image Processing
+albumentations==1.3.1                 # Synchronized image+mask transforms
+opencv-python-headless==4.8.1.78      # Headless: no GUI deps for Docker
+numpy==1.26.2
+
+# ── Transitive Dependency Pin
+# six: required by segmentation-models-pytorch's internal compatibility
+# layer — pinned explicitly to avoid resolver ambiguity during build.
 six==1.16.0

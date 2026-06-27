@@ -1,16 +1,48 @@
-# --- Python Environments ---
+# ==============================================================
+# .dockerignore — UNet Segmentation API
+# ==============================================================
+
+# ── Python Environments
 __pycache__/
 *.py[cod]
+*.pyo
 .venv/
 venv/
+env/
 
-# --- Heavy Data & Research ---
+# ── Secrets
+.env
+*.env
+.env.*
+
+# ── Dataset & Research Artifacts
 bottle/
 bottle.tar.xz
-*.ipynb
 research/
+training/
+*.ipynb
 
-# --- Git & OS Files ---
+# ── Logs
+*.log
+logs/
+
+# ── Test & Coverage Artifacts
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Documentation
+*.md
+docs/
+
+# ── IDE Artifacts
+.idea/
+.vscode/
+*.code-workspace
+
+# ── Git & OS Files
 .git/
 .gitignore
 .DS_Store
+Thumbs.db

@@ -1,23 +1,53 @@
-# --- Python & Environments ---
+# ==============================================================
+# .gitignore — UNet Segmentation API
+# ==============================================================
+
+# ── Python & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+
+# ── Virtual Environments
 .venv/
 venv/
 env/
-.env
 
-# --- Model Artifacts & Data ---
-models/*.pth
-models/*.pt
+# ── Secrets
+.env
+*.env
+.env.*
+
+# ── Model Artifacts & Weights
+models/*
+!models/.gitkeep
+*.pt
+*.pth
+
+# ── Dataset (downloaded at runtime via ingest_data())
 bottle/
 bottle.tar.xz
 
-# --- Jupyter & Research ---
+# ── Jupyter & Research
 .ipynb_checkpoints/
 
-# --- OS Generated Files ---
+# ── Test & Coverage Artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# ── IDE Artifacts
+.idea/
+.vscode/
+*.code-workspace
+
+# ── Build & Distribution
+dist/
+build/
+*.egg-info/
+
+# ── OS Generated Files
 .DS_Store
-.DS_Store?
 ._*
 Thumbs.db
